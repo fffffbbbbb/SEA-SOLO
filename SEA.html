@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4xx.xx.kg-SEA Solo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(to right, #2c2c2c, #3a3a3a);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: #ff7b00;
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff7b00;
+        }
+        
+        /* 宣传横幅 */
+        .banner {
+            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('bj.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .banner-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .server-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .info-item {
+            background-color: rgba(255, 123, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border-left: 3px solid #ff7b00;
+        }
+        
+        /* 服务器规则区域 */
+        .rules {
+            background-color: #2a2a2a;
+            padding: 4rem 0;
+            margin: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ff7b00;
+            font-size: 2.5rem;
+        }
+        
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .rule-category {
+            background-color: #363636;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rule-category h3 {
+            color: #ff7b00;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff7b00;
+        }
+        
+        .rule-category ul {
+            list-style-type: none;
+        }
+        
+        .rule-category li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .rule-category li:before {
+            content: "•";
+            color: #ff7b00;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 行动召唤区域 */
+        .cta {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .cta-box {
+            background: linear-gradient(to bottom right, #363636, #2a2a2a);
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid #444;
+        }
+        
+        .cta-box h3 {
+            color: #ff7b00;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .cta-box p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .qq-btn {
+            display: inline-block;
+            background-color: #12b7f5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .qq-btn:hover {
+            background-color: #0f9bd3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .qq-btn i {
+            margin-right: 8px;
+        }
+        
+        .qrcode {
+            margin-top: 1.5rem;
+        }
+        
+        .qrcode img {
+            max-width: 200px;
+            border: 5px solid #fff;
+            border-radius: 10px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #252525;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            width: 100%;
+            color: #888;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .banner h2 {
+                font-size: 2rem;
+            }
+            
+            .server-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="tb.jpg" alt=" ">
+                    <h1>4xx.xx.kg-SEA Solo</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#rules">服务器规则</a></li>
+                    <li><a href="#join">加入群组</a></li>
+                    <li><a href="#donate">支持我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 宣传横幅 -->
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h2>东南亚独狼周清服</h2>
+            <p>无插件 | 无权限 | 无买卖 ——三无服务器</p>
+            <div class="server-info">
+                <div class="info-item">
+                    <strong>直连:</strong> connect 139.99.22.17:28015
+                </div>
+                <div class="info-item">
+                    <strong>地图大小</strong> 3000
+                </div>
+                <div class="info-item">
+                    <strong>最大团队人数:</strong> 1
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务器规则 -->
+    <section class="rules" id="rules">
+        <div class="container">
+            <h2 class="section-title">服务器规则</h2>
+            <div class="rules-grid">
+                <div class="rule-category">
+                    <h3>游戏行为规范</h3>
+                    <ul>
+                        <li>禁止使用任何外挂、作弊软件</li>
+                        <li>禁止恶意利用游戏漏洞</li>
+                        <li>禁止种族歧视、人身攻击言论</li>
+                        <li>禁止连续恶意骚扰其他玩家</li>
+                        <li>建筑不得故意阻塞重要资源点</li>
+                        <li>禁止组队或在其他玩家建筑内主动长期逗留</li>
+                    </ul>
+                </div>
+                <div class="rule-category">
+                    <h3>建筑与基地规则</h3>
+                    <ul>
+                        <li>基地之间保持合理距离</li>
+                        <li>禁止使用建筑恶意卡地形</li>
+                    </ul>
+                </div>
+                <div class="rule-category">
+                    <h3>社区交流规则</h3>
+                    <ul>
+                        <li>游戏内聊天文明用语</li>
+                        <li>禁止刷屏、发布广告</li>
+                        <li>语音聊天控制音量</li>
+                        <li>争议问题联系管理员</li>
+                        <li>QQ群遵守群规</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行动召唤区域 -->
+    <section class="container" id="join">
+        <h2 class="section-title">加入我们的社区</h2>
+        <div class="cta">
+            <div class="cta-box">
+                <h3>加入QQ群</h3>
+                <p>与服务器玩家交流、组队、获取最新通知</p>
+                <a href="https://qm.qq.com/q/k2qqed7CNi" class="qq-btn" target="_blank">
+                    <i class="fab fa-qq"></i> 点击加入QQ群
+                </a>
+                <p style="margin-top: 15px; font-size: 0.9rem;">或添加QQ群号: 788960340</p>
+            </div>
+            
+            <div class="cta-box" id="donate">
+                <h3>支持服务器运营</h3>
+                <p>感谢老板的支持</p>
+                <div class="qrcode">
+                    <img src="zfb.jpg" alt="捐款二维码">
+                </div>
+                <p style="margin-top: 15px; font-size: 0.9rem;">扫描二维码支持我们</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <img src="bj.jpg" alt="">
+                    <h2>4xx.xx.kg-SEA Solo</h2>
+                </div>
+                <div class="server-ip">
+                    <h3>connect <span style="color: #ff7b00;">139.99.22.17:28015</span></h3>
+                </div>
+            </div>
+            <div class="copyright">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
